@@ -2,11 +2,9 @@
 errors listed below, and try again.
 
 
-The label choice1_done is defined twice, at File "game/script.rpy", line 70:
-    label choice1_done:
-and File "game/script.rpy", line 161:
-    label choice1_done:
-
+File "game/options.rpy", line 65: Line is indented, but the preceding define statement statement does not expect a block. Please check this line's indentation.
+    define config.main_menu_music = "ghost.mp3"
+    ^
 
 Ren'Py Version: Ren'Py 7.5.0.22062402
-Wed Jun 29 23:31:08 2022
+Thu Jun 30 00:25:41 2022
