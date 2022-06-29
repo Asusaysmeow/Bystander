@@ -1,0 +1,22 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While running game code:
+  File "game/script.rpy", line 94, in script
+    h_whisper"(..My Name is Henry, not Hans...)"
+Exception: Sayer 'h_whisper' is not defined.
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "game/script.rpy", line 94, in script
+    h_whisper"(..My Name is Henry, not Hans...)"
+  File "renpy/ast.py", line 861, in execute
+    who = eval_who(self.who, self.who_fast)
+  File "renpy/ast.py", line 754, in eval_who
+    raise Exception("Sayer '%s' is not defined." % who)
+Exception: Sayer 'h_whisper' is not defined.
+
+Windows-10-10.0.19041 AMD64
+Ren'Py 7.5.0.22062402
+Bystander 1.0
+Wed Jun 29 23:21:32 2022

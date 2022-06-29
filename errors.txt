@@ -1,0 +1,12 @@
+﻿I'm sorry, but errors were detected in your script. Please correct the
+errors listed below, and try again.
+
+
+The label choice1_done is defined twice, at File "game/script.rpy", line 70:
+    label choice1_done:
+and File "game/script.rpy", line 161:
+    label choice1_done:
+
+
+Ren'Py Version: Ren'Py 7.5.0.22062402
+Wed Jun 29 23:31:08 2022
