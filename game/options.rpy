@@ -78,7 +78,7 @@ define config.exit_transition = dissolve
 
 
 ## Rollback is getting disabled
-define config.rollback_enabled = False
+#define config.rollback_enabled = False
 ## Between screens of the game menu.
 
 define config.intra_transition = dissolve
