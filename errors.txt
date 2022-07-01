@@ -2,9 +2,13 @@
 errors listed below, and try again.
 
 
-File "game/options.rpy", line 65: Line is indented, but the preceding define statement statement does not expect a block. Please check this line's indentation.
-    define config.main_menu_music = "ghost.mp3"
+File "game/script.rpy", line 139: Line is indented, but the preceding say statement statement does not expect a block. Please check this line's indentation.
+    b "Itsn`t that right Deafy?"
+    ^
+
+File "game/script.rpy", line 145: Line is indented, but the preceding show statement statement does not expect a block. Please check this line's indentation.
+    b "It´s still me who gets to decied on how I call you."
     ^
 
 Ren'Py Version: Ren'Py 7.5.0.22062402
-Thu Jun 30 00:25:41 2022
+Fri Jul  1 13:17:04 2022

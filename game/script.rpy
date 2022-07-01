@@ -55,136 +55,152 @@ label start:
 
     label choice1_forgor:
             $ menu_flag = True
-            t "Haha that's the Friend I have, c'mon let's ask someone to copy the Homework from."
+            t "Haha that's the Friend I have, c'mon let's ask someone to copy the homework from."
             jump choice1_done
 
     label choice1_no:
 
         $ menu_flag = False
-
+        show tom sad
         t "Geez...you should start studying or else you will have to repeat this year. Don't let me alone, man."
 
         jump choice1_done
 
     label choice1_done:
 
-    t "Oh shoot, Ms. Sneez' is arriving! We should go back to our seats."
+    t "Oh shoot, Ms. Sneez' is coming! We should go back to our seats."
     show tom happy at left
     hide tom
     show teach happy at right
-    teach "Sit down everyone, I have an announcement to make. Today we are getting a new Student."
+    teach "Sit down everyone, I have an announcement to make. Today we are getting a new transfer student."
     show teach happy:
         xalign 0.5
         yalign 1.0
     show henry sad at right
-    teach "*Yawn* Please go ahead and introduce yourself."
+    teach "Please go ahead and introduce yourself."
     
     un "Y-Yeah.. O-Okay.."
     show henry sad:
         xalign 0.5
         yalign 1.0
-    un "*takes a deep breath* H-He-Hello, my name is Henry and I just moved to my Mother's place."
+    hide teach
+    un "*takes a deep breath*{p} H-He-Hello, my name is Henry and I just moved to my Mother's place."
 
-    "Girl voice" "Where did you live before?"  
-    h "I-I lived with my Dad but he h-has to w-wo-work abroad now." 
-
-    un "(...Haha, look at him, he is about to cry, what a weakling....)"
-    show teach happy
-    teach "Stop talking everyone, we are about to start class. Go sit down Hans"
+    un "(What is wrong with this guy?...)"
+    un "(...I think he has a stutter...)"
+    un "(...and a bad one on top of that...)"
+    show teach happy at left
+    teach "Alright thank you Henry. You can go ahead and take a seat now."
     show henry sad at right
     h "O-Okay..."
-    h"(..My Name is Henry, not Hans...)"
+    h"(Oh no, my introduction was even worse than I anticipated)"
     hide teach happy
     hide henry
     show tom sad
     t "(...Ahh.. this isn't going to end well, that's for sure...)"
     hide tom
+
+
+    scene black
+    with Dissolve(1)
     "Some time passes.."
+    scene bg classroom
+    with Dissolve(1)
 
     show teach happy
-    teach "Okay, Leslie hand these out. Fill the quiz until I am back.  This is your assignment for today."
+    teach "Leslie would you please hand these quiz sheets out?" 
+     
     show leslie happy
     show teach happy at right
     l "Yes."
     hide leslie
+    teach "Everyone, fill out the quiz until I am back."
     hide teach
     show tom sad
-    t "And again we get do to stuff on our own.. why is Ms. Sneez' even a teacher if she doesn't teach."
+    t "And again we gotta do to stuff on our own..." 
+    t "Why is Ms. Sneez even a teacher if she doesn't teach?"
+   
     hide tom
 
     show billy happy
-    b "HEY HANS!"
-    b "HEEEEEEEEY!!!"
+    b "HEY YOU!"
+    b "HELLO!!!"
     show billy angry
-    b "HAAAANS I AM TALKING TO YOU!!"
+    b "IM TALKING TO YOU!"
+   
     hide billy
     show leslie angry
     l "Billy, stop screaming!"
     l "Im trying to concentrate on my Quiz so please keep it down."
-    l"Also, his name is Henry and not Hans. "
-    hide leslie
-    "Boy voice" "Haha she is right Billy, are that dumb, that you forget his name even thought it isn't even 10 mins past him telling his name to us."
-    show billy angry
-    b "SHUT THE FUCK UP"
-    b "I called him like that on purpose, because Ms Sneez' couldnt even listen to him talk. What a disgrace. "
-    un "Yeah you're right, he didn't even correct her."
-    un "Might aswell be his Name if he didnt respond, haha."
-    show billy happy
-    b "Yes, you get it! Hans, if you have a problem with how I call you, we can solve that on the basketball field later."
-    show henry sad at right
-    h "A-Ah.. C-Call me w-whatever y-you want.."
-    b "Hahah, see Leslie?"
-    b "he doesn't have a problem with me calling him Hans!"
-    hide henry
-    hide billy
     show leslie angry
-    l "*rolls her eyes* yeah yeah.."
-    l "(...only because you threatened him...)"
+    show billy angry at left
+    b "Mind your own business Leslie. I have to to talk to Mr. New Guy here."
+    show billy happy at left
+    b "But it seems that he is deaf on top of having a huge stutter."
+    b "Isn`t that right Deafy?"
     hide leslie
-    "Billy wraps his Arm around Henry's Shoulders"
-    show billy happy
     show henry sad
-    b "So Hans, are you going to help your first Friend out and give me your Quiz sheet?"
+    h "I-It´s Henry. C-Call me Henry"
+    show billy angry at left
+
+    b "It´s still me who gets to decied on how I call you."
     h "..."
-    b "Hahahah, neat! Thanks Hans!"
+   
+    show billy happy:
+            xalign 0.30
+            yalign 1.0
+
+    "Billy wraps his Arm around Henry's Shoulders"
+    
+    show henry sad
+    b "Do you mind helping out a friend with his quiz?"
+    "Billy snatches Henry´s quiz sheet right out of his hands"
+
+    show billy happy:
+        xalign 0.25
+        yalign 1.0
+    b "Yes... I see... You are a smart one, aren´t you?"
+    b "I will borrow this if you don´t mind"
     hide billy
     hide henry
 
     show tom sad
 
-    t "Billy is already teasing Hans, that's so mean.."
+    t "It´s his first day and Billy is already picking on the New Guy."
+    show tom happy
+    t "Glad that it´s not us getting picked on by Billy, right?"
 
     menu:
 
-        "His name is Henry, not Hans.":
-            jump choice2_yes
+        "True":
+            jump choice2_1
 
-        "Yes, poor Hans.":
-            jump choice2_no
+        "I feel sorry for him.":
+            jump choice2_2
 
 
 
 
 
        
-    label choice2_yes:
-
-       # $ menu_flag = True
-        t "Oh you're right, im sorry! Billy calling him Hans all the time made me forget."
+    label choice2_1:
+        show tom angry
+        t "I guess thats what he gets after making himself such a clown in front of the class."
         jump choice2_done
 
 
-    label choice2_no:
-
-       # $ menu_flag = False
-
-        t "I don't want to get dragged into that mess."
+    label choice2_2:
+        show tom sad
+        t "I mean, it´s not like that i don´t. I just don´t want to get dragged into this mess."
+        t"Let´s just let this solve itself."
 
         jump choice2_done
 
     label choice2_done:
 
-    "Nothing yet"
+    hide tom
+
+    "To be continued"
 
     # This ends the game.
 
