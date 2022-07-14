@@ -209,7 +209,7 @@ label start:
     with Dissolve(1)
 
 
-    play music 'ghost.mp3' # ANDERE AFTER CLASS MUSIK MUSS HIER LAUFEN
+    play music 'ruins.mp3' # ANDERE AFTER CLASS MUSIK MUSS HIER LAUFEN
 
     # These display lines of dialogue.
     show tom sad at left
@@ -405,7 +405,7 @@ label start:
 
 
     scene bg bedroom
-    play music 'ruins.mp3'
+    play music 'reunited.mp3'
   
     "To be continued"
 
