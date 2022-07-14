@@ -244,12 +244,24 @@ label start:
     h "Wait, do I really have to..."
   
     b "Rob, Jake, drag him out!"
-
+    show rob happy
     r "Sure thing."
+    
     show henry sad:
         xalign 1.1
         yalign 1.0
+
+    show jake happy:
+        xalign 0.35
+        yalign 1.0
     j "Yeah, there is no escape for you, punk."
+
+    show rob happy:
+        xalign 0.85
+        yalign 1.0
+    show jake happy:
+        xalign 1.0
+        yalign 1.0
     show henry sad:
         xalign 1.2
         yalign 1.0
@@ -303,7 +315,7 @@ label start:
         scene bg outside  # DER HINTERGRUND MUSS NOCH HINZUGEFÜGT WERDEN
         with Dissolve(1)
 
-        play music 'ghost.mp3' # ANDERE MUSIK
+        play music 'tension.mp3' # ANDERE MUSIK
 
         "You are looking behind the gym for Billy and the others."
         show billy happy:
@@ -335,12 +347,13 @@ label start:
         b "OF COURSE I AM!"
         b "You are nothing! Just look at yourself!"
         b "I hate people like you! Weak and miserable!"
-
+        show jake happy at left
         j "Guys someone is watching us!"
 
         b "You are off the hook for now. But don't you dare not showing up tomorrow!"
         hide billy
-        "As quickly as the beat Henry up, as fast they left the Scene again."
+        hide jake
+        "As quickly as they beat Henry up, as fast they left the Scene again."
 
         menu:
 
@@ -388,11 +401,12 @@ label start:
     
 
 
-    show tom happy
+  
 
 
-
-
+    scene bg bedroom
+    play music 'ruins.mp3'
+  
     "To be continued"
 
     # This ends the game.
