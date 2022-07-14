@@ -4,13 +4,15 @@
 # name of the character.
 
 
-
+define y = Character("You")
 define t = Character("Tom")
 define un = Character("???")
 define teach = Character("Ms Sneezer")
 define h = Character("Henry")
 define l = Character("Leslie")
 define b = Character("Billy")
+define r = Character("Rob")
+define j = Character("Jake")
 # The game starts here.
 
 label start:
@@ -103,7 +105,7 @@ label start:
 
     scene black
     with Dissolve(1)
-    "Some time passes.."
+    "Later that same day..."
     scene bg classroom
     with Dissolve(1)
 
@@ -140,10 +142,10 @@ label start:
     b "Isn`t that right Deafy?"
     hide leslie
     show henry sad
-    h "I-It´s Henry. C-Call me Henry"
+    h "I-It's Henry. C-Call me Henry"
     show billy angry at left
 
-    b "It´s still me who gets to decied on how I call you."
+    b "It's still me who gets to decied on how I call you."
     h "..."
    
     show billy happy:
@@ -154,21 +156,21 @@ label start:
     
     show henry sad
     b "Do you mind helping out a friend with his quiz?"
-    "Billy snatches Henry´s quiz sheet right out of his hands"
+    "Billy snatches Henry's quiz sheet right out of his hands"
 
     show billy happy:
         xalign 0.25
         yalign 1.0
-    b "Yes... I see... You are a smart one, aren´t you?"
-    b "I will borrow this if you don´t mind"
+    b "Yes... I see... You are a smart one, aren't you?"
+    b "I will borrow this if you don't mind"
     hide billy
     hide henry
 
     show tom sad
 
-    t "It´s his first day and Billy is already picking on the New Guy."
+    t "It's his first day and Billy is already picking on the New Guy."
     show tom happy
-    t "Glad that it´s not us getting picked on by Billy, right?"
+    t "Glad that it's not us getting picked on by Billy, right?"
 
     menu:
 
@@ -191,14 +193,205 @@ label start:
 
     label choice2_2:
         show tom sad
-        t "I mean, it´s not like that i don´t. I just don´t want to get dragged into this mess."
-        t"Let´s just let this solve itself."
+        t "I mean, it's not like that i don't. I just don't want to get dragged into this mess."
+        t"Let's just let this solve itself."
 
         jump choice2_done
 
     label choice2_done:
 
     hide tom
+
+    scene black
+    with Dissolve(1)
+    "Class for today has ended"
+    scene bg hallway  # DER HINTERGRUND MUSS NOCH HINZUGEFÜGT WERDEN
+    with Dissolve(1)
+
+
+    play music 'ghost.mp3' # ANDERE AFTER CLASS MUSIK MUSS HIER LAUFEN
+
+    # These display lines of dialogue.
+    show tom sad at left
+    t "Puh... Watching Billy pick on the new guy on his first day was really nerve wracking."
+
+
+    t "Look, over there. Henry is trying to sneak out of the class."
+    show henry sad at right
+    t "Yo Henry, there is no need for you to-"
+
+    show billy happy
+    b "So there you are Henry!"
+
+    show billy happy:
+        xalign 0.75
+        yalign 1.0
+    b "I was already looking for you."
+    #hide tom
+    h"..."
+
+    b "Did you really think you can sneak out that easily?"
+    
+    h"....."
+
+    b "Thank's to Tom I have finally found you."
+    b "Now then. There is a ritual at our school for every new student that joins our class."
+
+    t "Hmm? What is he talking about?"
+
+    b "Today you gotta show us how strong you are. Let's go outside. The yard behind the Gym should be good."
+
+    h "Wait, do I really have to..."
+  
+    b "Rob, Jake, drag him out!"
+
+    r "Sure thing."
+    show henry sad:
+        xalign 1.1
+        yalign 1.0
+    j "Yeah, there is no escape for you, punk."
+    show henry sad:
+        xalign 1.2
+        yalign 1.0
+    h "Please, someone..."
+
+    menu:
+
+        "Step in":
+            jump choice3_stepin
+
+        "Follow them outside":
+            jump choice3_followthem
+
+        "Ignore them":
+            jump choice3_ignorethem
+
+    label choice3_stepin:
+
+        $ menu_flag = True
+        y "Hold it you guys! Leave him alone, he has no business with you. So stop pushing him around!"
+        show billy angry
+        b "Oh my, looks like someone is looking for trouble. You better look after yourself, idiot."
+        
+        "Billy pushes you back"
+    
+        r "If you want some too, then come outside. I will make you regret interfering us."
+        j "Yeah, you stupid egghead! Don't mess with us!"
+
+        "Billy, Rob and Jake leave the building and drag Henry with them"
+        hide billy
+        hide henry
+        t "Oh no! Now he is really gonna be beaten up."
+        t "I haven't seen Billy so angry in a long time."
+        t "Please don't follow them. They will beat you up aswell. I'm sure of it."
+
+        menu:
+
+            "Go after them":
+                jump choice3_followthem
+
+            "Don't go after them":
+                jump choice3_ignorethem
+
+    label choice3_followthem:
+
+        t "You are really doing this? I can't believe you wouldn't listen to me."
+
+        scene black
+        with Dissolve(1)
+        "You leave the building and follow them outside"
+        scene bg outside  # DER HINTERGRUND MUSS NOCH HINZUGEFÜGT WERDEN
+        with Dissolve(1)
+
+        play music 'ghost.mp3' # ANDERE MUSIK
+
+        "You are looking behind the gym for Billy and the others."
+        show billy happy:
+            xalign 0.3
+            yalign 1.0
+        show henry sad:
+            xalign 0.5
+            yalign 1.0
+        b "So then, what do you think about me?"
+
+        h "What do you mean? Please let me go!"
+
+        b "I asked you a question, now answer it!"
+        show billy happy:
+            xalign 0.4
+            yalign 1.0
+        "Billy punches Henry in the belly"
+        show henry sad:
+            xalign 0.7
+            yalign 1.5
+        h "OUUUUCHHH!!!!!!!!"
+        "Henry is falling on his knees."
+        "He is in alot of pain, he can't stand anymore."
+
+        b "NOW THEN AM I THE STRONGEST HERE OR WHAT?!!"
+        
+        h"Y-Yes... You are..."
+        show billy angry
+        b "OF COURSE I AM!"
+        b "You are nothing! Just look at yourself!"
+        b "I hate people like you! Weak and miserable!"
+
+        j "Guys someone is watching us!"
+
+        b "You are off the hook for now. But don't you dare not showing up tomorrow!"
+        hide billy
+        "As quickly as the beat Henry up, as fast they left the Scene again."
+
+        menu:
+
+            "Help Henry":
+                jump choice3_help
+
+            "Leave him be":
+                jump choice3_leavehim
+
+        label choice3_help:
+
+        y "Hey are you ok?"
+        show henry sad:
+            xalign 0.7
+            yalign 1.0
+        h "No..."
+        y "How can I help you?"
+        h "...."
+
+        y "Let me get a teacher, they know what to do!"
+        hide henry
+        "You are looking for a teacher."
+        show teach happy
+        "You find Ms. Sneezer and tell her everything that happened and that Henry needs help."
+        teach "Alright thank you. I can take care of it now. But leave him some room, would you?"
+        jump choice3_done
+        hide teach
+
+        label choice3_leavehim:
+            "You leave the scene and pretend like you didn't see what happened."
+            jump choice3_done
+
+
+    label choice3_ignorethem:
+        show tom happy
+        t "It's really nothing we should get involved in. Either Henry can handel it by himself or a teacher will help him." 
+        t "But i guess that's just how Billy is."  
+
+        jump choice3_done    
+    
+    label choice3_done:
+
+    # AFTER SCHOOL AB HIER
+    # HIER KOMMT DAS CYBERMOBBING
+    
+
+
+    show tom happy
+
+
+
 
     "To be continued"
 
