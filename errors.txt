@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 261: expected 'simple_expression' not found.
-    yalign: 1.0
-          ^
+File "game/script.rpy", line 478: Line is indented, but the preceding say statement statement does not expect a block. Please check this line's indentation.
+    jump choice4_done
+    ^
 
 Ren'Py Version: Ren'Py 7.5.0.22062402
-Thu Jul 14 23:16:59 2022
+Fri Jul 15 02:04:11 2022

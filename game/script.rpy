@@ -4,6 +4,8 @@
 # name of the character.
 
 
+
+
 define y = Character("You")
 define t = Character("Tom")
 define un = Character("???")
@@ -305,98 +307,99 @@ label start:
             "Don't go after them":
                 jump choice3_ignorethem
 
-    label choice3_followthem:
+        label choice3_followthem:
 
-        t "You are really doing this? I can't believe you wouldn't listen to me."
+            t "You are really doing this? I can't believe you wouldn't listen to me."
 
-        scene black
-        with Dissolve(1)
-        "You leave the building and follow them outside"
-        scene bg outside  # DER HINTERGRUND MUSS NOCH HINZUGEFÜGT WERDEN
-        with Dissolve(1)
+            scene black
+            with Dissolve(1)
+            "You leave the building and follow them outside"
+            scene bg outside  # DER HINTERGRUND MUSS NOCH HINZUGEFÜGT WERDEN
+            with Dissolve(1)
 
-        play music 'tension.mp3' # ANDERE MUSIK
+            play music 'tension.mp3' # ANDERE MUSIK
 
-        "You are looking behind the gym for Billy and the others."
-        show billy happy:
-            xalign 0.3
-            yalign 1.0
-        show henry sad:
-            xalign 0.5
-            yalign 1.0
-        b "So then, what do you think about me?"
+            "You are looking behind the gym for Billy and the others."
+            show billy happy:
+                xalign 0.3
+                yalign 1.0
+            show henry sad:
+                xalign 0.5
+                yalign 1.0
+            b "So then, what do you think about me?"
 
-        h "What do you mean? Please let me go!"
+            h "What do you mean? Please let me go!"
 
-        b "I asked you a question, now answer it!"
-        show billy happy:
-            xalign 0.4
-            yalign 1.0
-        "Billy punches Henry in the belly"
-        show henry sad:
-            xalign 0.7
-            yalign 1.5
-        h "OUUUUCHHH!!!!!!!!"
-        "Henry is falling on his knees."
-        "He is in alot of pain, he can't stand anymore."
+            b "I asked you a question, now answer it!"
+            show billy happy:
+                xalign 0.4
+                yalign 1.0
+            "Billy punches Henry in the belly"
+            show henry sad:
+                xalign 0.7
+                yalign 1.5
+            play sound 'slap.ogg'
+            h "OUUUUCHHH!!!!!!!!"
+            "Henry is falling on his knees."
+            "He is in alot of pain, he can't stand anymore."
 
-        b "NOW THEN AM I THE STRONGEST HERE OR WHAT?!!"
-        
-        h"Y-Yes... You are..."
-        show billy angry
-        b "OF COURSE I AM!"
-        b "You are nothing! Just look at yourself!"
-        b "I hate people like you! Weak and miserable!"
-        show jake happy at left
-        j "Guys someone is watching us!"
+            b "NOW THEN AM I THE STRONGEST HERE OR WHAT?!!"
+            
+            h"Y-Yes... You are..."
+            show billy angry
+            b "OF COURSE I AM!"
+            b "You are nothing! Just look at yourself!"
+            b "I hate people like you! Weak and miserable!"
+            show jake happy at left
+            j "Guys someone is watching us!"
 
-        b "You are off the hook for now. But don't you dare not showing up tomorrow!"
-        hide billy
-        hide jake
-        "As quickly as they beat Henry up, as fast they left the Scene again."
+            b "You are off the hook for now. But don't you dare not showing up tomorrow!"
+            hide billy
+            hide jake
+            "As quickly as they beat Henry up, as fast they left the Scene again."
 
-        menu:
+            menu:
 
-            "Help Henry":
-                jump choice3_help
+                "Help Henry":
+                    jump choice3_help
 
-            "Leave him be":
-                jump choice3_leavehim
+                "Leave him be":
+                    jump choice3_leavehim
 
-        label choice3_help:
+            label choice3_help:
 
-        y "Hey are you ok?"
-        show henry sad:
-            xalign 0.7
-            yalign 1.0
-        h "No..."
-        y "How can I help you?"
-        h "...."
+            y "Hey are you ok?"
+            show henry sad:
+                xalign 0.7
+                yalign 1.0
+            h "No..."
+            y "How can I help you?"
+            h "...."
 
-        y "Let me get a teacher, they know what to do!"
-        hide henry
-        "You are looking for a teacher."
-        show teach happy
-        "You find Ms. Sneezer and tell her everything that happened and that Henry needs help."
-        teach "Alright thank you. I can take care of it now. But leave him some room, would you?"
-        jump choice3_done
-        hide teach
+            y "Let me get a teacher, they know what to do!"
+            hide henry
+            "You are looking for a teacher."
+            show teach happy
+            "You find Ms. Sneezer and tell her everything that happened and that Henry needs help."
+            teach "Alright thank you. I can take care of it now. But leave him some room, would you?"
+            jump choice3_done
+            hide teach
 
-        label choice3_leavehim:
-            "You leave the scene and pretend like you didn't see what happened."
+            label choice3_leavehim:
+                "You leave the scene and pretend like you didn't see what happened."
             jump choice3_done
 
 
-    label choice3_ignorethem:
-        show tom happy
-        t "It's really nothing we should get involved in. Either Henry can handel it by himself or a teacher will help him." 
-        t "But i guess that's just how Billy is."  
+            label choice3_ignorethem:
+                show tom happy
+                t "It's really nothing we should get involved in. Either Henry can handel it by himself or a teacher will help him." 
+                t "But i guess that's just how Billy is."  
 
-        jump choice3_done    
+            jump choice3_done    
     
-    label choice3_done:
+        label choice3_done:
 
-    # AFTER SCHOOL AB HIER
+    
     # HIER KOMMT DAS CYBERMOBBING
     
 
@@ -407,8 +410,174 @@ label start:
     scene bg bedroom
     play music 'reunited.mp3'
   
-    "To be continued"
+    "Phone is ringing nonstop"
+    play sound 'ring.mp3'
+    "*Checks his messages*"
+    "Henry joined the chatroom of the class"
+    
 
+    l "Welcome to our class Henry."
+
+    t "Hey Henry, Welcome!"
+
+    h "Thank you! Eventhough the first day was kinda rough, I still think we will have fun"
+    
+    b "Yes, that is true. We both will have a lot of fun!"
+
+    l "Can't you leave him alone."
+
+    b "Shut up! You are lucky you're a girl."
+
+    j "Heklo Hrenyd., sye yta topmrowe :)"
+    
+    "*You'are talking to yourself*"
+
+    y "Oh man.. He just doesnt stop. Not even at home."
+
+    "You fall asleep..."
+    "Zzzzzz"
+
+    "Day 2"
+    scene bg outside
+    play music 'ruins.mp3'
+    show henry happy
+    y "Hi Henry, wanna walk to class togehther?"
+
+    h "T-Thank's but i need to v-visit the restroom first. W-Wanna come with me?"
+    
+    # Menu zum kopieren für Ali :-)
+
+    #Hier fängt choice 4 an
+    menu:
+
+        "Yeah, sure!":
+            jump choice4_yes
+
+        "No, thanks I dont want to be late *smiling*":
+            jump choice4_no
+    
+    label choice4_yes:
+        scene bg bathroom
+        #play music 'wc.mp3'
+        show billy angry
+        b "Hello new boy. Good to see you, i thought you wouldn't come to school today."
+        
+
+        menu:
+            "Cant you take a break. Leave him alone":
+                jump choice5_def
+
+            "*Do nothing*": 
+                jump choice5_done
+        
+        label choice5_def:
+            b "Dont worry when I am finished here, you gonna be the next one"
+            hide billy
+            show rob happy:
+                xalign 0.3
+                yalign 1.0
+            show jake happy:
+                xalign 0.6
+                yalign 1.0
+            r "You have seen enough. Leave!"
+            jump choice5_done
+
+            label choice5_done:
+                scene bg classroom
+                "Enter classroom"
+                show tom happy
+                t "Have you seen Henry? He is late for class."
+                y "Yes, I have seen him and he is in huge trouble."
+                t "What you mean 'huge trouble'?"
+                show tom sad
+                y "Billy found him, I tried to help but the twins stopped me..."
+                t "Look man. I know you are trying your best to help him but you need to watch out for your health as well"
+                t "They will also target you when you go try to be annoying"
+                t "There he is psssh"
+                "*Bell rings*"
+                play sound 'bell.mp3'
+                "Billy, Rob and Jake join the class"
+                hide tom
+                show teach happy
+                teach "Everybody sit down! Leslie collect the homework of everyone"
+                hide teach
+                show leslie happy
+                l "Yes, mam!"
+                hide leslie
+                t "<Hey... where he is Henry. Didn't you say you saw him?>"
+                teach "Who is talking? Is it you Jake? You wanna be suspended again?"
+                j "No, please. It wasn't me."
+                y "Yes, I did see him. Billy must have done something very bad"
+
+            
+            #hier weiter wegen defenden
+            jump choice4_done
+
+        
+
+    label choice4_no:
+        h "Alrighty see ya in class"
+        y "yo!"
+        hide henry
+        scene bg classroom
+        show tom happy
+        t "Have you seen Henry? He is late today"
+        y "I have seen him. He just went to the restroom"
+        t "Oh, that not good. I saw Billy going there before class. Hopefully he didn't see him."
+        "*Billy, Jake and Rob join the classroom*"
+        "*Bell rings*"
+        play sound 'bell.mp3'
+        teach "Everybody sit down!"
+        jump choice4_done
+
+    label choice4_done:
+        "*bell rings everybody is leaving*"
+        play sound 'bell.mp3'
+        "You are walking home"
+        scene bg bedroom
+        "*Phone is ringing*"
+        play sound 'ring.mp3'
+        b "*send a picture*"
+        "Whole classgroup is laughing"
+        j "bhbhbhbhbh"
+        r "jnjmnknmkk"
+
+        y "<No, this cant be true. Isn't that Henry???>"
+        l "Delete this ASAP! This is not funny. This is way too much"
+        h "*leaves chat"
+        b "haha seems like someone didn't like it"
+        "On the picture you see Henry's head deep in a toillete while Billy is laughing"
+                
+        y "I should have done something! Why am I like this"
+        y "... but I can't do anything myself against 3"
+        y "Henry, I'm so sorry. You don't deserve any of this..."
+
+        scene bg outside
+        show tom sad
+        t "You have probably seen the photo..."
+        y "yes."
+        t "This is way too much even for Billy"
+        y "..."
+        t "Where is Henry? Maybe he is already in the classroom"
+        y "Probably not..."
+
+        scene bg classroom
+        "*bells rings*"
+        play sound 'bell.mp3'
+        show teach happy
+        teach "I have bad news... Henry left the school. He didn't like it and told me something about bullying idk. Leslie do your work"
+        j "hahaha that's a new record Billy"
+        r "You made him leave the school after 2 days!"
+        
+
+
+
+
+
+    #Hier endet choice 4
     # This ends the game.
+
+
+
 
     return
