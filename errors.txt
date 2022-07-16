@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 478: Line is indented, but the preceding say statement statement does not expect a block. Please check this line's indentation.
-    jump choice4_done
+File "game/script.rpy", line 30: Line is indented, but the preceding one-line python statement statement does not expect a block. Please check this line's indentation.
+    scene bg classroom
     ^
 
 Ren'Py Version: Ren'Py 7.5.0.22062402
-Fri Jul 15 02:04:11 2022
+Fri Jul 15 15:55:18 2022

@@ -3,7 +3,8 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-
+$ ignore1 = False
+$ ignore2 = False
 
 
 define y = Character("You")
@@ -19,6 +20,9 @@ define j = Character("Jake")
 
 label start:
 
+    $ ignore1 = False
+    $ ignore2 = False
+
     # Show a background. This uses a placeholder by default, but you can
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.
@@ -29,7 +33,7 @@ label start:
     # replace it by adding a file named "eileen happy.png" to the images
     # directory.
 
-    play music 'ghost.mp3'
+    play music 'ruins.mp3'
 
     # These display lines of dialogue.
 
@@ -88,7 +92,7 @@ label start:
         xalign 0.5
         yalign 1.0
     hide teach
-    un "*takes a deep breath*{p} H-He-Hello, my name is Henry and I just moved to my Mother's place."
+    un "*takes a deep breath*{p} H-He-Hello, m-my name is Henry and I just moved to my m-mother's p-p-place."
 
     un "(What is wrong with this guy?...)"
     un "(...I think he has a stutter...)"
@@ -211,7 +215,7 @@ label start:
     with Dissolve(1)
 
 
-    play music 'ruins.mp3' # ANDERE AFTER CLASS MUSIK MUSS HIER LAUFEN
+     # ANDERE AFTER CLASS MUSIK MUSS HIER LAUFEN
 
     # These display lines of dialogue.
     show tom sad at left
@@ -224,7 +228,7 @@ label start:
 
     show billy happy
     b "So there you are Henry!"
-
+    play music 'tension.mp3'
     show billy happy:
         xalign 0.75
         yalign 1.0
@@ -268,7 +272,10 @@ label start:
         xalign 1.2
         yalign 1.0
     h "Please, someone..."
-
+    hide rob
+    hide jake
+    hide billy
+    hide henry
     menu:
 
         "Step in":
@@ -278,6 +285,7 @@ label start:
             jump choice3_followthem
 
         "Ignore them":
+            $ ignore2 = True
             jump choice3_ignorethem
 
     label choice3_stepin:
@@ -357,13 +365,14 @@ label start:
             hide billy
             hide jake
             "As quickly as they beat Henry up, as fast they left the Scene again."
-
+            play music 'ruins.mp3'
             menu:
 
                 "Help Henry":
                     jump choice3_help
 
                 "Leave him be":
+                    $ ignore2 = True
                     jump choice3_leavehim
 
             label choice3_help:
@@ -392,6 +401,7 @@ label start:
 
             label choice3_ignorethem:
                 show tom happy
+                $ ignore1 = True
                 t "It's really nothing we should get involved in. Either Henry can handel it by himself or a teacher will help him." 
                 t "But i guess that's just how Billy is."  
 
@@ -400,18 +410,21 @@ label start:
         label choice3_done:
 
     
-    # HIER KOMMT DAS CYBERMOBBING
+    # HIER KOMMT DAS CYBERMOBBING---------------------------------------------------------------------------------
     
+    scene black
+    with Dissolve(1)
+    "As for today school is over"
+    "You are going home"
+    scene bg bedroom    
+    with Dissolve(1)
 
-
-  
-
-
-    scene bg bedroom
     play music 'reunited.mp3'
-  
-    "Phone is ringing nonstop"
+
+
     play sound 'ring.mp3'
+    "Phone is ringing nonstop"
+    
     "*Checks his messages*"
     "Henry joined the chatroom of the class"
     
@@ -429,16 +442,23 @@ label start:
     b "Shut up! You are lucky you're a girl."
 
     j "Heklo Hrenyd., sye yta topmrowe :)"
+
+    hide phone
     
     "*You'are talking to yourself*"
 
     y "Oh man.. He just doesnt stop. Not even at home."
 
-    "You fall asleep..."
-    "Zzzzzz"
-
-    "Day 2"
+    scene black
+    with Dissolve(1)
+    "The day is coming to it's end"
+    "You feel tired and fall asleep"
+    y "Zzzzzz"
     scene bg outside
+
+    "The next morning at school"    
+    with Dissolve(1)
+
     play music 'ruins.mp3'
     show henry happy
     y "Hi Henry, wanna walk to class togehther?"
@@ -457,17 +477,25 @@ label start:
             jump choice4_no
     
     label choice4_yes:
-        scene bg bathroom
-        #play music 'wc.mp3'
+
+        scene black
+        with Dissolve(1)
+        "You enter the schools Bathroom with Henry"
+        scene bg bathroom    
+        with Dissolve(1)
+
+        play music 'tension.mp3'
         show billy angry
-        b "Hello new boy. Good to see you, i thought you wouldn't come to school today."
+        b""
+        b "Hello new boy. Didn't expect this early today. But luck seems to be on my side."
         
 
         menu:
-            "Cant you take a break. Leave him alone":
+            "Can't you take a break. Leave him alone":
                 jump choice5_def
 
-            "*Do nothing*": 
+            "Leave the bathroom as quick as possible":
+                $ ignore2 = True 
                 jump choice5_done
         
         label choice5_def:
@@ -483,8 +511,12 @@ label start:
             jump choice5_done
 
             label choice5_done:
-                scene bg classroom
-                "Enter classroom"
+                scene black
+                with Dissolve(1)
+                "School is starten, so you hurry up and enter your classroom"
+                scene bg classroom    
+                with Dissolve(1)
+                play music 'ruins.mp3'
                 show tom happy
                 t "Have you seen Henry? He is late for class."
                 y "Yes, I have seen him and he is in huge trouble."
@@ -531,37 +563,74 @@ label start:
         jump choice4_done
 
     label choice4_done:
-        "*bell rings everybody is leaving*"
-        play sound 'bell.mp3'
-        "You are walking home"
-        scene bg bedroom
+
+        scene black
+        with Dissolve(1)
+        "The school bell rings"
+        play sound 'bell.mp3' volume 1.5
+        "School for today is over"
+        "You leave and walk home"
+        #ZUHAUSE REEEE----------------------------------------------------------------------------------------------------
+        scene bg bedroom   
+        with Dissolve(1)
+        play music 'reunited.mp3'
+
         "*Phone is ringing*"
         play sound 'ring.mp3'
-        b "*send a picture*"
-        "Whole classgroup is laughing"
-        j "bhbhbhbhbh"
-        r "jnjmnknmkk"
+        show phone base
+        "In this moment Billy has sent a very disturbing picture."
+        "This photo shows Henry's head being dumped in a toilet"
 
-        y "<No, this cant be true. Isn't that Henry???>"
+        r"LOL"
+        un"NO WAY THIS HAPPENED"
+        un"Well who cares?"
+        un"How could someone do this to anyone?"
+        j "I think it's funny, don't you?"
+        un "It's hilarious!"
+        un"Not @ all??"
+
         l "Delete this ASAP! This is not funny. This is way too much"
-        h "*leaves chat"
+        "Henry left the chat"
         b "haha seems like someone didn't like it"
         "On the picture you see Henry's head deep in a toillete while Billy is laughing"
-                
-        y "I should have done something! Why am I like this"
-        y "... but I can't do anything myself against 3"
+        hide phone    
+        y "I should have done something! Why am I like this?"
+        y "... but I can't do anything myself against three."
         y "Henry, I'm so sorry. You don't deserve any of this..."
 
-        scene bg outside
+        scene black
+        with Dissolve(1)
+        "You are tired and go to sleep"
+        y"Zzzzzzzzzzzzzz"
+        ""
+        "The very next day at school"
+        scene bg outside   
+        with Dissolve(1)
+        play music 'ruins.mp3'
         show tom sad
         t "You have probably seen the photo..."
-        y "yes."
+        y "Yes."
         t "This is way too much even for Billy"
         y "..."
         t "Where is Henry? Maybe he is already in the classroom"
         y "Probably not..."
 
-        scene bg classroom
+        scene black
+        with Dissolve(1)
+        "Together with Tom you enter the classroom"
+        scene bg classroom 
+        with Dissolve(1)
+
+    #if ignore1 is True:
+        # if ignore2 is True:
+        #  jump ending_2
+       # jump ending_1
+        jump ending_1      
+    #if ignore1 is False:
+        # if ignore2 is True:
+        #  jump ending_1
+       # jump ending_3
+
         "*bells rings*"
         play sound 'bell.mp3'
         show teach happy
@@ -571,6 +640,50 @@ label start:
         
 
 
+
+    label ending_1:
+
+        "*bells rings*"
+        play sound 'bell.mp3'
+        show teach happy
+        teach "I have bad news... Henry left the school. He didn't like it and told me something about bullying idk. Leslie do your work"
+        j "Hahaha that's a new record Billy"
+        r "You made him leave the school after 2 days!"
+        jump totalend
+
+    label ending_2:
+
+        "*bells rings*"
+        play sound 'bell.mp3'
+        show teach happy
+        teach "I have bad news... Henry left the school."
+        "The teacher is looking right at you"
+        teach "Why didn't you bother helping him?"
+        y"..."
+        teach "He told me that you left him multiple times right when he was in trouble."
+        teach "You might be inexperienced in such things, but you can't just look away and pretend nothing happened."
+        teach"And you Billy, I had a call with your mother. We need to talk about some thing."
+        ""
+        jump totalend
+
+    label ending_3:
+
+        "*bells rings*"
+        play sound 'bell.mp3'
+        show teach happy
+        teach "I have bad news... Henry left the school."
+        teach "Billy you can't imagine in how much trouble you are."
+        teach "I've been told about everything you, Rob and Jake have done to Henry."
+        "She is looking right at you"
+        teach"Thank you for your courage."
+        teach"It's not easy to be brave in such situations."
+        teach"But it sure is worth the trouble in all cases."
+        jump totalend
+
+    label totalend:
+    hide teach
+    "This is the end of the game"
+    "Thank you so much for playing!"
 
 
 
